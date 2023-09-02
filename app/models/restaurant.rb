@@ -1,3 +1,14 @@
+# == Schema Information
+#
+# Table name: restaurants
+#
+#  id         :bigint           not null, primary key
+#  name       :string
+#  status     :integer          default("ok")
+#  deleted_at :datetime
+#  created_at :datetime         not null
+#  updated_at :datetime         not null
+#
 class Restaurant < ApplicationRecord
   has_many :device_servers, dependent: :destroy
   accepts_nested_attributes_for :device_servers, reject_if: :all_blank, allow_destroy: true

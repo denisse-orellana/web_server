@@ -73,3 +73,5 @@ gem 'rails-erd', group: :development
 gem 'cocoon'
 # Adds easy form for Rails
 gem 'simple_form'
+# Annotate Rails classes with schema and routes info
+gem 'annotate', group: :development
