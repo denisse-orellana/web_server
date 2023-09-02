@@ -15,7 +15,7 @@
 #  updated_at        :datetime         not null
 #
 class Server < ApplicationRecord
-  belongs_to :server_device
+  belongs_to :device_server
   belongs_to :restaurant
 
   enum server_status: {
