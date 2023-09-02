@@ -38,4 +38,20 @@ class Restaurant < ApplicationRecord
       self.update_column(:status, "error" )
     end
   end
+
+  def create_server(restaurant)
+    restaurant.device_servers.each do |device|
+      @server = Server.new(
+        server_name:        device.name,
+        server_status:      device.status,
+        server_update:      device.updated_at,
+        device_server_id:   device.id,
+        restaurant_name:    restaurant.name,
+        restaurant_status:  restaurant.status,
+        restaurant_update:  restaurant.updated_at,
+        restaurant_id:      restaurant.id
+      )
+      @server.save
+    end
+  end
 end
