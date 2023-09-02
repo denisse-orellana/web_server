@@ -75,3 +75,9 @@ gem 'cocoon'
 gem 'simple_form'
 # Annotate Rails classes with schema and routes info
 gem 'annotate', group: :development
+# To run scheduled application tasks
+gem 'clockwork'
+# To upload to Heroku
+gem 'sqlite3', group: :development
+# To upload to Heroku
+gem 'pg', group: :production
