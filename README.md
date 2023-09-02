@@ -1,4 +1,4 @@
-# Web Server
+# 🚀 Web Server
 
 This web application allows you to know the status of the restaurants and devices/server.
 
