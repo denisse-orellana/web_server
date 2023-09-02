@@ -60,3 +60,16 @@ end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
+
+# Add bootstrap rubygem for Rails 
+gem 'bootstrap', '~> 5.3.1'
+# Add gem to automate using jQuery with Rails
+gem "jquery-rails", "~> 4.4"
+# Add the font-awesome font bundled as an asset for the rails asset pipeline
+gem "font-awesome-rails"
+# Allows to show the actual diagram model
+gem 'rails-erd', group: :development
+# Form builder-agnostic to handle nested forms. Read more: https://github.com/nathanvda/cocoon
+gem 'cocoon'
+# Adds easy form for Rails
+gem 'simple_form'
