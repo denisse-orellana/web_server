@@ -36,20 +36,22 @@ class Server < ApplicationRecord
   def self.update_server_statuses
     @devices = DeviceServer.all
     @devices.each do |device|
-      @server = Server.new(
-        server_name:        device.name,
-        server_status:      device.status,
-        server_update:      device.updated_at,
-        device_server_id:   device.id,
-        restaurant_name:    device.restaurant.name,
-        restaurant_status:  device.restaurant.status,
-        restaurant_update:  device.restaurant.updated_at,
-        restaurant_id:      device.restaurant.id
-      )
-      @server.save
+      if device.present? && device.restaurant.present?
+        @server = Server.new(
+          server_name:        device.name,
+          server_status:      device.status,
+          server_update:      device.updated_at,
+          device_server_id:   device.id,
+          restaurant_name:    device.restaurant.name,
+          restaurant_status:  device.restaurant.status,
+          restaurant_update:  device.restaurant.updated_at,
+          restaurant_id:      device.restaurant.id
+        )
+        @server.save
+      end
     end
 
-    puts "####### Total servers updated: #{@devices.size} ######"
+    puts "####### Total servers updated: #{@devices.size} in 30 seconds ######"
   end
 
   def update_servers_every_30_seconds
