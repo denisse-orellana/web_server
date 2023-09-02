@@ -1,0 +1,29 @@
+<div class="container mt-1 mb-5">
+  <div class="bg-danger-subtle rounded p-4 my-4">
+    <h1>
+      <i class="fa fa-server"></i>
+      Servers History
+    </h1>
+  </div>
+
+  <div class="table-responsive">
+    <table class="table">
+      <thead class="table-primary">
+        <tr>
+          <th scope="col">#</th>
+          <th scope="col">Server</th>
+          <th scope="col">Server Status</th>
+          <th scope="col">Server Updated</th>
+          <th scope="col">Restaurant</th>
+          <th scope="col">Restaurant Status</th>
+          <th scope="col">Restaurant Updated</th>
+        </tr>
+      </thead>
+      <tbody
+        id="servers-table"
+        data-url="<%= servers_path %>"
+      >
+      </tbody>
+    </table>
+  </div>
+</div>

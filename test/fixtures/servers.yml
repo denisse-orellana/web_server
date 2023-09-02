@@ -1,0 +1,36 @@
+# == Schema Information
+#
+# Table name: servers
+#
+#  id                :bigint           not null, primary key
+#  server_name       :string
+#  server_status     :integer          default("ok")
+#  server_update     :datetime
+#  device_server_id  :bigint
+#  restaurant_name   :string
+#  restaurant_status :integer          default("ok")
+#  restaurant_update :datetime
+#  restaurant_id     :bigint
+#  created_at        :datetime         not null
+#  updated_at        :datetime         not null
+#
+
+one:
+  server_name: MyString
+  server_status: 1
+  server_update: 2023-09-01 23:56:56
+  server_device: one
+  restaurant_name: MyString
+  restaurant_status: 1
+  restaurant_update: 2023-09-01 23:56:56
+  restaurant: one
+
+two:
+  server_name: MyString
+  server_status: 1
+  server_update: 2023-09-01 23:56:56
+  server_device: two
+  restaurant_name: MyString
+  restaurant_status: 1
+  restaurant_update: 2023-09-01 23:56:56
+  restaurant: two

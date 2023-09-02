@@ -1,0 +1,32 @@
+<div class="container mt-1 mb-5">
+  <div class="bg-danger-subtle rounded p-4 my-4">
+    <h1>
+      <i class="fa fa-area-chart" aria-hidden="true"></i>
+      Overview
+    </h1>
+  </div>
+  
+  <div class="mb-4">
+    <%#= link_to raw('<i class="fa fa-plus-circle 2x" aria-hidden="true"></i> New Restaurant'), new_restaurant_path, remote: true, class: 'btn btn-primary btn-lg text-bold' %>
+    <div id="form-restaurant"></div>
+  </div>
+
+  <div class="table-responsive">
+    <table class="table">
+      <thead class="table-primary">
+        <tr>
+          <th scope="col">#</th>
+          <th scope="col">Restaurant</th>
+          <th scope="col">Status</th>
+          <th scope="col">Updated</th>
+          <th scope="col">Server/Device</th>
+        </tr>
+      </thead>
+      <tbody
+        id="main-server-table"
+        data-url="<%= main_servers_path %>"
+      >
+      </tbody>
+    </table>
+  </div>
+</div>

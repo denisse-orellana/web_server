@@ -1,0 +1,29 @@
+<% @main_servers.each do |main_server| %>
+  <% @restaurant = main_server.restaurant if main_server.present? %>
+  <% @device_servers = @restaurant.device_servers if @restaurant.present? %>
+
+  <% if @restaurant.present? %>
+    <tr id="main_server-<%= main_server.id %>">
+      <th scope="row"><%= main_server.id %></th>
+      <td><%= @restaurant.name.titlecase&.to_s %></td>
+      <td><span class="<%= status_color(@restaurant) %>"><%= @restaurant.status.titlecase&.to_s %></span></td>
+      <td><%= @restaurant.updated_at.strftime('%T %d-%m-%y')&.to_s %></td>
+      <td>
+        <% @device_servers.each do |device| %>
+          <table class="table border border-white">
+            <% if device.present? %>
+              <tr>
+                <td><%= device.name.titlecase&.to_s %></td>
+                <td class="text-end w-25"><span class="<%= status_color(device) %>"><%= device.status.titlecase&.to_s %></span></td>
+                <td class="text-end w-25">
+                  <p><%= device.updated_at.strftime('%T')&.to_s  %></p>
+                  <p><%= device.updated_at.strftime('%d-%m-%y')&.to_s %></p>
+                </td>
+              </tr>
+            <% end %>
+          </table>
+        <% end %>
+      </td>
+    </tr>
+  <% end %>
+<% end %>

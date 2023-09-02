@@ -1,0 +1,14 @@
+<% @restaurants.each do |restaurant| %>
+  <% if restaurant.present? %>
+    <tr id="restaurant-<%= restaurant.id %>">
+      <th scope="row"><%= restaurant.id %></th>
+      <td><%= restaurant.name.titlecase&.to_s %></td>
+      <td><span class="<%= status_color(restaurant) %>"><%= restaurant.status.titlecase&.to_s %></span></td>
+      <td><%= restaurant.updated_at.strftime('%T %d-%m-%y')&.to_s %></td>
+      <td>
+        <%= link_to raw('<i class="fa fa-pencil-square-o"></i>'), edit_restaurant_path(restaurant), remote: true, class: 'btn bg-primary text-bold text-white rounded-circle' %>
+        <%= link_to raw('<i class="fa fa-times"></i>'), restaurant_path(restaurant), remote: true, method: :delete, :data => { :confirm => "¿Are you sure you want to delete #{restaurant.name}?" }, class: 'btn bg-danger text-bold text-white rounded-circle' %>
+      </td>
+    </tr>
+  <% end %>
+<% end %>

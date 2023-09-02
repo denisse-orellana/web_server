@@ -1,0 +1,13 @@
+<% @servers.each do |server| %>
+  <% if server.present? %>
+    <tr id="server-<%= server.id %>">
+      <th scope="row"><%= server.id %></th>
+      <td><%= server.server_name.titlecase&.to_s%></td>
+      <td><span class="<%= status_color_server(server) %>"><%= server.server_status.titlecase&.to_s %></span></td>
+      <td><%= server.server_update.strftime('%T %d-%m-%y')&.to_s %></td>
+      <td><%= server.restaurant_name.titlecase&.to_s %></td>
+      <td><span class="<%= status_color_restaurant(server) %>"><%= server.restaurant_status.titlecase&.to_s %></span></td>
+      <td><%= server.restaurant_update.strftime('%T %d-%m-%y')&.to_s %></td>
+    </tr>
+  <% end %>
+<% end %>

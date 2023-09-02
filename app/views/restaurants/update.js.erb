@@ -1,0 +1,9 @@
+$('#simple-modal').modal('hide'); 
+
+<% if @success %>
+  loadRestaurantsTable();
+  $('#simple-modal').modal('hide'); 
+<% else %>
+  $('#form-restaurant').html('<%= j render('restaurants/forms/form') %>');
+  $('#simple-modal').modal('show');
+<% end %>
