@@ -1,24 +1,63 @@
-# README
+# Web Server
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+This web application allows you to know the status of the restaurants and devices/server.
 
-Things you may want to cover:
+## Diagram model
 
-* Ruby version
+<p align="left"><img width="70%" src="./app/assets/images/erd.png"></p>
 
-* System dependencies
+## Pre-requisities 
 
-* Configuration
+To run this project make sure you have installed the following technologies:
 
-* Database creation
+* Ruby  v2.7.3
+* Rails v5.2.8.1
+* Node  v16.14.2
+* Yarn  v1.22.19
 
-* Database initialization
+## Getting Started
 
-* How to run the test suite
+Clone the repository in the folder 
 
-* Services (job queues, cache servers, search engines, etc.)
+```console
+  git clone git@github.com:denisseee/server_web.git server_web
+```
 
-* Deployment instructions
+Install the dependencies
 
-* ...
+```console
+  cd server_web
+  bundle install
+```
+
+Setup the database
+
+```console
+  rails db:setup
+```
+
+And run the next command to ensure constant updating of the servers:
+
+```console
+  clockwork clock.rb
+```
+
+## Run the project
+
+From the terminal:
+
+```console
+  rails s
+```
+
+Check the project in development:
+
+```console
+  http://localhost:3000/
+```
+
+## See the application
+
+Check the project in production:
+
+From Heroku: [Web Server](https://www.google.cl/)
