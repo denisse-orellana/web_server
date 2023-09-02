@@ -61,3 +61,7 @@ Check the project in development:
 Check the project in production:
 
 From Heroku: [Web Server](https://web-server-statuses-cfa2474be8c2.herokuapp.com/)
+
+## *Note
+
+From production the updating will be every day.
