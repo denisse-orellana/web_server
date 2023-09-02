@@ -35,4 +35,17 @@ class Server < ApplicationRecord
 
     puts "####### Total servers updated: #{@devices.size} ######"
   end
+
+  def update_servers_every_30_seconds
+    # To prevent a infinite while loop the servers will be updated only 3 times
+    $updated_from = 0
+    $updated_until = 3
+    $seconds = 30
+    
+    while $updated_from < $updated_until  do
+      Server.update_server_statuses
+      sleep $seconds
+      $updated_from += 1
+    end
+  end
 end
