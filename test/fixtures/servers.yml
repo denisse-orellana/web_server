@@ -1,0 +1,21 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  server_name: MyString
+  server_status: 1
+  server_update: 2023-09-01 23:56:56
+  server_device: one
+  restaurant_name: MyString
+  restaurant_status: 1
+  restaurant_update: 2023-09-01 23:56:56
+  restaurant: one
+
+two:
+  server_name: MyString
+  server_status: 1
+  server_update: 2023-09-01 23:56:56
+  server_device: two
+  restaurant_name: MyString
+  restaurant_status: 1
+  restaurant_update: 2023-09-01 23:56:56
+  restaurant: two
