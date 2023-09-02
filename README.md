@@ -60,4 +60,4 @@ Check the project in development:
 
 Check the project in production:
 
-From Heroku: [Web Server](https://www.google.cl/)
+From Heroku: [Web Server](https://web-server-statuses-cfa2474be8c2.herokuapp.com/)
