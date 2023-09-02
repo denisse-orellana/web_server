@@ -24,4 +24,18 @@ class Restaurant < ApplicationRecord
   validates :name, presence: true
   validates :status, presence: true
   validates_presence_of :device_servers
+
+  after_save :update_restaurant_statuses
+
+  def update_restaurant_statuses
+    if self.device_servers.where(status: "error").size == 0
+      self.update_column(:status, "ok" )
+    elsif self.device_servers.where(status: "error").size == 1
+      self.update_column(:status, "warning" )
+    elsif self.device_servers.where(status: "error").size == 2
+      self.update_column(:status, "error" )
+    elsif self.device_servers.where(status: "error").size == 3
+      self.update_column(:status, "error" )
+    end
+  end
 end
