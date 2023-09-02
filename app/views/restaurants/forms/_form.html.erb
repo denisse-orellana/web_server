@@ -1,0 +1,58 @@
+<%= simple_form_for(@restaurant, remote: true) do |form| %>
+  <div class="modal fade" id="simple-modal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h1 class="modal-title fs-5" id="exampleModalLabel">
+            <i class="fa fa-cutlery" aria-hidden="true"></i>
+            <%= @restaurant.new_record? ? 'Add a new Restaurant' : 'Edit Restaurant' %>
+          </h1>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <div id="form-errors" class="form-group pb-2">
+            <% if @restaurant.errors.any? %>
+              <div id="error_explanation" class="bg-danger-subtle rounded p-3">
+                <h4 class="text-danger">
+                  <i class="fa fa-times-circle-o" aria-hidden="true"></i>
+                  Error: Something went wrong
+                </h4>
+                <h5>Please fix this <%= pluralize(@restaurant.errors.count, "error") %> before save:</h5> 
+                <ul>
+                  <% @restaurant.errors.full_messages.each do |message| %>
+                    <li><%= message %></li>
+                  <% end %>
+                </ul>
+              </div>
+            <% end %>
+          </div>
+          <div class="form-group pb-2">
+            <%= form.label :name, 'Restaurant Name' %>
+            <%= form.text_field :name, class: "form-control", value: @restaurant.name if @restaurant.present? %>
+          </div>
+          <div class="form-group pb-3">
+            <%= form.label :status, 'Status' %> <br>
+            <%= form.input :status, as: :select, collection: Restaurant.status_description_restaurant, wrapper: false, label: false, include_blank: false, input_html: { class: 'form-control', disabled: true }, selected: @restaurant.status if @restaurant.present? %>
+          </div>
+          <div id="add-device" class="form-group pt-3 pb-3">
+            <h5 class="pb-2">
+              <i class="fa fa-server 2x" aria-hidden="true"></i>
+              <%= @restaurant.new_record? ? 'Add a new Device/Server' : 'Edit Device/Server' %>
+            </h5>
+            <div>
+              <%= form.simple_fields_for :device_servers do |dc| %>
+                <%= render '/restaurants/forms/device_servers_fields', f: dc %>
+              <% end %>
+              <%= link_to_add_association raw('<i class="fa fa-plus-circle ml-2"></i> New Device/Server'), form, :device_servers, partial: '/restaurants/forms/device_servers_fields', id: 'add-device-btn', class: 'btn btn-primary text-bold' %>
+            </div>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary btn-lg text-bold" data-bs-dismiss="modal">Close</button>
+          <%= form.submit 'Save', data: { disable_with: 'Creating...', backdrop: "static" }, class: 'btn btn-success btn-lg text-bold' %>
+        </div>
+      </div>
+    </div>
+  </div>
+<% end %>
+
