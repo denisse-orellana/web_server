@@ -3,6 +3,7 @@ databases:
     ipAllowList: []
     databaseName: web_server_production
     user: web_server
+    plan: free
 
 services:
   - type: web
