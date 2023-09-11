@@ -81,3 +81,5 @@ gem 'clockwork'
 gem 'sqlite3', group: :development
 # To upload to Heroku
 gem 'pg', group: :production
+# Nokogiri (鋸) makes it easy and painless to work with XML and HTML from Ruby
+gem 'nokogiri', '~> 1.15', '>= 1.15.4'
