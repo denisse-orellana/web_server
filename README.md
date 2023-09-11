@@ -61,6 +61,7 @@ Check the project in development:
 Check the project in production:
 
 From Heroku: [Web Server](https://web-server-statuses-cfa2474be8c2.herokuapp.com/)
+From Render: [WEB SERVER](https://web-server-7hfm.onrender.com/server)
 
 ## *Note
 
